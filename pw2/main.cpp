@@ -143,7 +143,7 @@ void full_factorial(int n, int s, double sigma, mt19937& gen) {
     print_design_matrix(x, y, s, false, show_inter);
 
     // Расчет beta через МНК (все главные + парные, для n=2,4)
-    // Для n=6 оставляем только главные, чтобы матрица не была вырожденной по размеру вывода
+    // Для n=6 оставляем только главные, так как матрица получится слишком большой
     int p = 1 + n;
     if (n <= 4) p += n * (n - 1) / 2;
 
@@ -328,7 +328,7 @@ void central_composite(int s, double sigma, mt19937& gen) {
 int main() {
     int s = 2;
     double sigma = 0.5;
-    mt19937 gen(42);
+    mt19937 gen(18);
 
     cout << "==================================================\n";
     cout << " Lab: Design of Experiments\n";
